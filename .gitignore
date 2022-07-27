@@ -1,0 +1,12 @@
+# Project exclude paths
+/target/
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+### IntelliJ IDEA ###
+.idea
+*.iml
