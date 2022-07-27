@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.epam</groupId>
+  <artifactId>tc</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <maven-compiler-plugin.source>1.8</maven-compiler-plugin.source>
+    <maven-compiler-plugin.target>1.8</maven-compiler-plugin.target>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <testng.version>7.1.0</testng.version>
+    <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+    <assertj-core.version>3.23.1</assertj-core.version>
+    <calculator.version>1.0</calculator.version>
+    <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+    <calculatorJarPath>${project.basedir}/src/test/resources/calculator-1.0.jar</calculatorJarPath>
+  </properties>
+
+  <profiles>
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <suit.file>${project.basedir}/src/test/resources/suite-add-and-subtract.xml</suit.file>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>suite-full-regression</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <properties>
+        <suit.file>
+          ${project.basedir}/src/test/resources/suite-add-and-subtract.xml,${project.basedir}/src/test/resources/suite-multiply-and-divide.xml
+        </suit.file>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>suite-multiply-and-divide</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <properties>
+        <suit.file>${project.basedir}/src/test/resources/suite-multiply-and-divide.xml</suit.file>
+      </properties>
+    </profile>
+  </profiles>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.epam.tat.module4</groupId>
+      <artifactId>calculator</artifactId>
+      <version>${calculator.version}</version>
+      <scope>system</scope>
+      <systemPath>${calculatorJarPath}</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>${testng.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj-core.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${maven-compiler-plugin.source}</source>
+          <target>${maven-compiler-plugin.target}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+        <version>3.10.1</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin.version}</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>${suit.file}</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>${maven-install-plugin.version}</version>
+        <configuration>
+          <file>${calculatorJarPath}</file>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
