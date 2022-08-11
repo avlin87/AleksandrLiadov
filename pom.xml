@@ -15,19 +15,16 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <testng.version>7.5</testng.version>
-    <assertj-core.version>3.23.1</assertj-core.version>
-    <webdrivermanager.version>5.2.2</webdrivermanager.version>
-    <selenium-java.version>4.3.0</selenium-java.version>
-    <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-    <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+    <selenide.version>6.6.6</selenide.version>
     <lombok.version>1.18.24</lombok.version>
     <logback-classic.version>1.2.11</logback-classic.version>
+    <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+    <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
   </properties>
 
   <profiles>
     <profile>
-      <id>hw3</id>
+      <id>selenide</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
@@ -39,26 +36,14 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.codeborne</groupId>
+      <artifactId>selenide</artifactId>
+      <version>${selenide.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>${testng.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj-core.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>${webdrivermanager.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>${selenium-java.version}</version>
+      <version>7.5</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>

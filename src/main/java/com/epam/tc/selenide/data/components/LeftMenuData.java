@@ -1,4 +1,4 @@
-package com.epam.tc.hw3.data.components;
+package com.epam.tc.selenide.data.components;
 
 import org.testng.annotations.DataProvider;
 
@@ -11,6 +11,11 @@ public class LeftMenuData {
             "Contact form",
             "Service",
             "Metals & Colors",
+            "Elements packs" },
+        {"Home",
+            "Metals & Colors",
+            "Contact form",
+            "Service",
             "Elements packs" }
     };
   }

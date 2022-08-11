@@ -1,4 +1,4 @@
-package com.epam.tc.hw3.data.components;
+package com.epam.tc.selenide.data.components;
 
 import org.testng.annotations.DataProvider;
 

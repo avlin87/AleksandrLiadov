@@ -1,4 +1,4 @@
-package com.epam.tc.hw3.data;
+package com.epam.tc.selenide.data;
 
 public enum DataEnum {
 

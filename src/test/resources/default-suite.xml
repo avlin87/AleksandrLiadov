@@ -4,8 +4,8 @@
 
   <test name="Group A">
     <classes>
-      <class name="com.epam.tc.hw3.scenarios.ex1.Exercise1Test"/>
-      <class name="com.epam.tc.hw3.scenarios.ex2.Exercise2Test"/>
+      <class name="com.epam.tc.selenide.scenarios.ex1.Exercise1Test"/>
+      <class name="com.epam.tc.selenide.scenarios.ex2.Exercise2Test"/>
     </classes>
   </test>
 

@@ -1,6 +1,6 @@
-package com.epam.tc.hw3.utils;
+package com.epam.tc.selenide.utils;
 
-import com.epam.tc.hw3.data.DataEnum;
+import com.epam.tc.selenide.data.DataEnum;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;

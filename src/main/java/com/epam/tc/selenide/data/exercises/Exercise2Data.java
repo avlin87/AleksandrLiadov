@@ -1,8 +1,9 @@
-package com.epam.tc.hw3.data;
+package com.epam.tc.selenide.data.exercises;
 
-import static com.epam.tc.hw3.data.DataEnum.LOG_PATTERNS;
-import static com.epam.tc.hw3.data.components.LogComponentData.getLogComponentData;
+import static com.epam.tc.selenide.data.DataEnum.LOG_PATTERNS;
+import static com.epam.tc.selenide.data.components.LogComponentData.getLogComponentData;
 
+import com.epam.tc.selenide.data.DataEnum;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;

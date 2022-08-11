@@ -1,12 +1,13 @@
-package com.epam.tc.hw3.data;
+package com.epam.tc.selenide.data.exercises;
 
-import static com.epam.tc.hw3.data.DataEnum.HEADERS;
-import static com.epam.tc.hw3.data.DataEnum.IMAGES_TEXTS;
-import static com.epam.tc.hw3.data.DataEnum.LEFT_MENU;
+import static com.epam.tc.selenide.data.DataEnum.HEADERS;
+import static com.epam.tc.selenide.data.DataEnum.IMAGES_TEXTS;
+import static com.epam.tc.selenide.data.DataEnum.LEFT_MENU;
 
-import com.epam.tc.hw3.data.components.HeaderMenuData;
-import com.epam.tc.hw3.data.components.LeftMenuData;
-import com.epam.tc.hw3.data.pages.IndexPageData;
+import com.epam.tc.selenide.data.DataEnum;
+import com.epam.tc.selenide.data.components.HeaderMenuData;
+import com.epam.tc.selenide.data.components.LeftMenuData;
+import com.epam.tc.selenide.data.pages.IndexPageData;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;

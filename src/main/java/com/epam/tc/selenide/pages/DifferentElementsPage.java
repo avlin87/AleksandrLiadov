@@ -1,12 +1,12 @@
-package com.epam.tc.hw3.pages;
+package com.epam.tc.selenide.pages;
 
-import com.epam.tc.hw3.pages.components.LogComponent;
-import java.util.List;
+import static com.codeborne.selenide.Selenide.page;
+
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
+import com.epam.tc.selenide.pages.components.LogComponent;
 import lombok.Getter;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class DifferentElementsPage {
 
@@ -14,27 +14,27 @@ public class DifferentElementsPage {
   private final LogComponent logComponent;
 
   @FindBy(css = "label.label-checkbox:nth-child(1) input[type='checkbox'], label.label-checkbox:nth-child(3) input[type='checkbox']")
-  private List<WebElement> checkBoxesOneAndThree;
+  private ElementsCollection checkBoxesOneAndThree;
 
   @FindBy(css = "label.label-radio:nth-child(4) input[type='radio']")
-  private WebElement forthRadioButton;
+  private SelenideElement forthRadioButton;
 
   @FindBy(css = "div.colors select.uui-form-element")
-  private WebElement colorDropDown;
+  private SelenideElement colorDropDown;
 
   @FindBy(css = "div.colors select.uui-form-element option:nth-child(4)")
-  private WebElement forthColorInDropDown;
+  private SelenideElement forthColorInDropDown;
 
   @FindBy(className = "main-content-hg")
-  private WebElement mainContentHg;
+  private SelenideElement mainContentHg;
 
-  public DifferentElementsPage(WebDriver webDriver) {
-    PageFactory.initElements(webDriver, this);
-    logComponent = PageFactory.initElements(webDriver, LogComponent.class);
+  public DifferentElementsPage() {
+    logComponent = page(LogComponent.class);
   }
 
+  @SuppressWarnings("deprecation")
   public void selectCheckboxes() {
-    checkBoxesOneAndThree.forEach(WebElement::click);
+    checkBoxesOneAndThree.forEach(SelenideElement::click);
   }
 
   public void selectRadioButton() {
