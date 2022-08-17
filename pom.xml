@@ -106,6 +106,10 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
+          <includes>
+            <include>TestFail.java</include>
+          </includes>
+          <testFailureIgnore>true</testFailureIgnore>
           <suiteXmlFiles>
             <suiteXmlFile>${suit.file}</suiteXmlFile>
           </suiteXmlFiles>
