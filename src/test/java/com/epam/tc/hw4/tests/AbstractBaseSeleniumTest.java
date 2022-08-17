@@ -3,7 +3,7 @@ package com.epam.tc.hw4.tests;
 import com.epam.tc.hw4.steps.ActionStep;
 import com.epam.tc.hw4.steps.AssertionStep;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
@@ -20,7 +20,7 @@ public abstract class AbstractBaseSeleniumTest {
   public void setUp(ITestContext testContext) {
     webDriver = WebDriverManager.chromedriver().create();
     webDriver.manage().window().maximize();
-    webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+    webDriver.manage().timeouts().implicitlyWait(3L, TimeUnit.SECONDS);
 
     actionStep = new ActionStep(webDriver);
     assertionStep = new AssertionStep(webDriver);

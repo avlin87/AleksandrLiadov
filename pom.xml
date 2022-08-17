@@ -16,11 +16,11 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- dependency versions -->
-    <allure.version>2.13.7</allure.version>
-    <testng.version>7.5</testng.version>
+    <allure.version>2.18.1</allure.version>
+    <testng.version>7.4.0</testng.version>
     <assertj-core.version>3.23.1</assertj-core.version>
     <webdrivermanager.version>5.2.2</webdrivermanager.version>
-    <selenium-java.version>4.3.0</selenium-java.version>
+    <selenium-java.version>3.141.59</selenium-java.version>
     <lombok.version>1.18.24</lombok.version>
     <logback-classic.version>1.2.11</logback-classic.version>
     <aspectj.version>1.8.10</aspectj.version>
