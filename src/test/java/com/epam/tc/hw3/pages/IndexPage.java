@@ -63,15 +63,13 @@ public class IndexPage {
   }
 
   public boolean isFrameButtonFoundInIframe() {
-    for (WebElement iframe : iframes) {
-      webDriver.switchTo().frame(iframe);
-      boolean isFound = !frameButtons.isEmpty();
-      switchToOriginalWindow();
-      if (isFound) {
-        return true;
-      }
-    }
-    return false;
+    return iframes.stream()
+        .anyMatch(iframe -> {
+          webDriver.switchTo().frame(iframe);
+          boolean isFound = !frameButtons.isEmpty();
+          switchToOriginalWindow();
+          return isFound;
+        });
   }
 
   public void switchToOriginalWindow() {

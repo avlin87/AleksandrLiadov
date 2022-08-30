@@ -10,3 +10,6 @@
 ### IntelliJ IDEA ###
 .idea
 *.iml
+
+# Allure files
+.allure

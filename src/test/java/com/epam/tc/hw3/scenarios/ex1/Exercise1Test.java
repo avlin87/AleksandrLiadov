@@ -3,17 +3,10 @@ package com.epam.tc.hw3.scenarios.ex1;
 import static com.epam.tc.hw3.data.DataEnum.HEADERS;
 import static com.epam.tc.hw3.data.DataEnum.IMAGES_TEXTS;
 import static com.epam.tc.hw3.data.DataEnum.LEFT_MENU;
-import static com.epam.tc.hw3.data.DataEnum.PASSWORD;
-import static com.epam.tc.hw3.data.DataEnum.USER_NAME;
-import static com.epam.tc.hw3.data.DataEnum.USER_NAME_TEXT;
-import static com.epam.tc.hw3.utils.PropertiesLoaderTest.getProperty;
 
 import com.epam.tc.hw3.data.DataEnum;
 import com.epam.tc.hw3.data.Exercise1Data;
-import com.epam.tc.hw3.pages.IndexPage;
-import com.epam.tc.hw3.pages.components.HeaderMenu;
 import com.epam.tc.hw3.pages.components.LeftMenu;
-import com.epam.tc.hw3.pages.components.LoginComponent;
 import com.epam.tc.hw3.scenarios.BaseTest;
 import java.util.List;
 import java.util.Map;
@@ -24,19 +17,8 @@ public class Exercise1Test extends BaseTest {
 
   @Test(dataProvider = "Exercise 1", dataProviderClass = Exercise1Data.class)
   public void exercise1(Map<DataEnum, String[]> dataMap) {
-    IndexPage indexPage = new IndexPage(webDriver);
-    LoginComponent loginComponent = indexPage.getLoginComponent();
-    HeaderMenu headerMenu = indexPage.getHeaderMenu();
     LeftMenu leftMenu = indexPage.getLeftMenu();
 
-    // 1.	Open test site by URL
-    indexPage.open();
-    // 2. Assert Browser title
-    softly.assertThat(indexPage.getTitle()).isEqualTo("Home Page");
-    // 3. Perform login
-    loginComponent.login(getProperty(USER_NAME), getProperty(PASSWORD));
-    // 4. Assert Username is loggined
-    assertUserLogged(loginComponent, getProperty(USER_NAME_TEXT));
     // 5. Assert that there are 4 items on the header section are displayed, and they have proper texts
     List<String> displayedHeaders = headerMenu.getDisplayedHeaders();
     assertAllElementsPresent(displayedHeaders, dataMap.get(HEADERS));
