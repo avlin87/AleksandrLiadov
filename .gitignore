@@ -7,6 +7,9 @@
 # Log file
 *.log
 
+# Allure files
+.allure
+
 ### IntelliJ IDEA ###
 .idea
 *.iml
