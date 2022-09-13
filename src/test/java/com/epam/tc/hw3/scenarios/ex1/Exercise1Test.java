@@ -17,6 +17,8 @@ public class Exercise1Test extends BaseTest {
 
   @Test(dataProvider = "Exercise 1", dataProviderClass = Exercise1Data.class)
   public void exercise1(Map<DataEnum, String[]> dataMap) {
+    navigateToIndexPageAndLogin(dataMap);
+
     LeftMenu leftMenu = indexPage.getLeftMenu();
 
     // 5. Assert that there are 4 items on the header section are displayed, and they have proper texts

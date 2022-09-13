@@ -2,6 +2,7 @@ package com.epam.tc.hw3.data;
 
 import static com.epam.tc.hw3.data.DataEnum.HEADERS;
 import static com.epam.tc.hw3.data.DataEnum.IMAGES_TEXTS;
+import static com.epam.tc.hw3.data.DataEnum.INDEX_PAGE_URL;
 import static com.epam.tc.hw3.data.DataEnum.LEFT_MENU;
 
 import com.epam.tc.hw3.data.components.HeaderMenuData;
@@ -27,6 +28,8 @@ public class Exercise1Data {
     for (int i = 0; i < limit; i++) {
       Map<DataEnum, String[]> dataMap = new HashMap<>();
       data.add(new Object[]{dataMap});
+
+      dataMap.put(INDEX_PAGE_URL, new String[]{"https://jdi-testing.github.io/jdi-light/index.html"});
 
       String[] headersData = getStringsData(HeaderMenuData.getHeaderData()[i]);
       dataMap.put(HEADERS, headersData);

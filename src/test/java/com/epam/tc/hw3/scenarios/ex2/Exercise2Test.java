@@ -14,6 +14,8 @@ public class Exercise2Test extends BaseTest {
 
   @Test(dataProvider = "Exercise 2", dataProviderClass = Exercise2Data.class)
   public void exercise2(Map<DataEnum, String[]> dataMap) {
+    navigateToIndexPageAndLogin(dataMap);
+
     DifferentElementsPage differentElementsPage = new DifferentElementsPage(webDriver);
     LogComponent logComponent = differentElementsPage.getLogComponent();
 

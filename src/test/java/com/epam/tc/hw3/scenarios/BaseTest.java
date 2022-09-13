@@ -1,22 +1,24 @@
 package com.epam.tc.hw3.scenarios;
 
+import static com.epam.tc.hw3.data.DataEnum.INDEX_PAGE_URL;
 import static com.epam.tc.hw3.data.DataEnum.PASSWORD;
 import static com.epam.tc.hw3.data.DataEnum.USER_NAME;
 import static com.epam.tc.hw3.data.DataEnum.USER_NAME_TEXT;
 import static com.epam.tc.hw3.utils.PropertiesLoaderTest.getProperty;
 
+import com.epam.tc.hw3.data.DataEnum;
 import com.epam.tc.hw3.pages.IndexPage;
 import com.epam.tc.hw3.pages.components.HeaderMenu;
 import com.epam.tc.hw3.pages.components.LoginComponent;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.Duration;
+import java.util.Map;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
@@ -53,14 +55,13 @@ public class BaseTest {
     }
   }
 
-  @BeforeMethod
-  protected void givenNavigateToIndexPageAndLogin() {
+  protected void navigateToIndexPageAndLogin(Map<DataEnum, String[]> dataMap) {
     indexPage = new IndexPage(webDriver);
     loginComponent = indexPage.getLoginComponent();
     headerMenu = indexPage.getHeaderMenu();
 
     // 1.	Open test site by URL
-    indexPage.open();
+    indexPage.open(dataMap.get(INDEX_PAGE_URL)[0]);
     // 2. Assert Browser title
     softly.assertThat(indexPage.getTitle()).isEqualTo("Home Page");
     // 3. Perform login

@@ -47,8 +47,8 @@ public class IndexPage {
     leftMenu = PageFactory.initElements(webDriver, LeftMenu.class);
   }
 
-  public void open() {
-    webDriver.get("https://jdi-testing.github.io/jdi-light/index.html");
+  public void open(String pageUrl) {
+    webDriver.get(pageUrl);
   }
 
   public String getTitle() {

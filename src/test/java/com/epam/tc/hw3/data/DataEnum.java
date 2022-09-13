@@ -6,6 +6,7 @@ public enum DataEnum {
   PASSWORD("password"),
   USER_NAME_TEXT("userNameText"),
 
+  INDEX_PAGE_URL,
   HEADERS,
   IMAGES_TEXTS,
   LEFT_MENU,

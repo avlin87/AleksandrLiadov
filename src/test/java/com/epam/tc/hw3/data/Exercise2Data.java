@@ -1,5 +1,6 @@
 package com.epam.tc.hw3.data;
 
+import static com.epam.tc.hw3.data.DataEnum.INDEX_PAGE_URL;
 import static com.epam.tc.hw3.data.DataEnum.LOG_PATTERNS;
 import static com.epam.tc.hw3.data.components.LogComponentData.getLogComponentData;
 
@@ -22,6 +23,7 @@ public class Exercise2Data {
     for (int i = 0; i < limit; i++) {
       Map<DataEnum, String[]> dataMap = new HashMap<>();
       data.add(new Object[]{dataMap});
+      dataMap.put(INDEX_PAGE_URL, new String[]{"https://jdi-testing.github.io/jdi-light/index.html"});
       String[] logComponentData = getStringsData(getLogComponentData()[i]);
       dataMap.put(LOG_PATTERNS, logComponentData);
     }
