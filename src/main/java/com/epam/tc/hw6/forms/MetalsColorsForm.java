@@ -9,26 +9,31 @@ import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 import com.epam.tc.hw6.entities.MetalsColorsInfo;
 
+/**
+ * LoginForm - form with Metals and Colors fields.
+ *
+ * @author Aleksandr Liadov
+ */
 public class MetalsColorsForm extends Form<MetalsColorsInfo> {
-    
-    @UI("#summary-block section div.info-panel-section p.radio input")
-    public RadioButtons summary;
 
-    @UI("#elements-block section div.info-panel-section p.checkbox input")
-    public Checklist elements;
+  @UI("#summary-block section div.info-panel-section p.radio input")
+  public RadioButtons summary;
 
-    @JDropdown(root = "#colors", list = "li", value = "span.text", expand = "span.caret")
-    public Dropdown colors;
+  @UI("#elements-block section div.info-panel-section p.checkbox input")
+  public Checklist elements;
 
-    @JDropdown(root = "#metals", list = "li", value = "span.text", expand = "span.caret")
-    public Dropdown metals;
+  @JDropdown(root = "#colors", list = "li", value = "span.text", expand = "span.caret")
+  public Dropdown colors;
 
-    @UI("#salad-dropdown .caret")
-    public Button vegetablesListToggle;
+  @JDropdown(root = "#metals", list = "li", value = "span.text", expand = "span.caret")
+  public Dropdown metals;
 
-    @UI("#salad-dropdown input")
-    public Checklist vegetables;
+  @UI("#salad-dropdown .caret")
+  public Button vegetablesListToggle;
 
-    @UI("div.main-content form.form button#submit-button")
-    public Button submit;
+  @UI("#salad-dropdown input")
+  public Checklist vegetables;
+
+  @UI("div.main-content form.form button#submit-button")
+  public Button submit;
 }
