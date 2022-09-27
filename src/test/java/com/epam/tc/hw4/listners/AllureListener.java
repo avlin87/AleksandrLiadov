@@ -1,5 +1,6 @@
 package com.epam.tc.hw4.listners;
 
+import com.epam.tc.hw4.driver.WebDriverSingleton;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -11,7 +12,7 @@ public class AllureListener implements ITestListener {
 
   @Override
   public void onTestFailure(ITestResult result) {
-    WebDriver driver = (WebDriver) result.getTestContext().getAttribute("driver");
+    WebDriver driver = WebDriverSingleton.getWebDriver();
     attachScreenshot(driver);
   }
 

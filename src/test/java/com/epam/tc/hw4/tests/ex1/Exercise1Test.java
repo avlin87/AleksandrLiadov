@@ -13,11 +13,13 @@ import com.epam.tc.hw4.dataproviders.Exercise1Data;
 import com.epam.tc.hw4.listners.AllureListener;
 import com.epam.tc.hw4.tests.AbstractBaseSeleniumTest;
 import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import java.util.Map;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Feature("Index Page content")
+@Feature("Exercise 1")
+@Story("Index Page content")
 @Listeners({AllureListener.class})
 public class Exercise1Test extends AbstractBaseSeleniumTest {
 

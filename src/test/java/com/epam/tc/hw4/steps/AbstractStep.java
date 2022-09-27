@@ -1,12 +1,13 @@
 package com.epam.tc.hw4.steps;
 
+import static com.epam.tc.hw4.driver.WebDriverSingleton.getWebDriver;
+
 import com.epam.tc.hw4.pages.DifferentElementsPage;
 import com.epam.tc.hw4.pages.IndexPage;
 import com.epam.tc.hw4.pages.components.HeaderMenu;
 import com.epam.tc.hw4.pages.components.LeftMenu;
 import com.epam.tc.hw4.pages.components.LogComponent;
 import com.epam.tc.hw4.pages.components.LoginComponent;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public abstract class AbstractStep {
@@ -19,13 +20,13 @@ public abstract class AbstractStep {
   protected DifferentElementsPage differentElementsPage;
   protected LogComponent logComponent;
 
-  protected AbstractStep(WebDriver webDriver) {
-    indexPage = PageFactory.initElements(webDriver, IndexPage.class);
-    loginComponent = PageFactory.initElements(webDriver, LoginComponent.class);
-    headerMenu = PageFactory.initElements(webDriver, HeaderMenu.class);
-    leftMenu = PageFactory.initElements(webDriver, LeftMenu.class);
+  protected AbstractStep() {
+    indexPage = PageFactory.initElements(getWebDriver(), IndexPage.class);
+    loginComponent = PageFactory.initElements(getWebDriver(), LoginComponent.class);
+    headerMenu = PageFactory.initElements(getWebDriver(), HeaderMenu.class);
+    leftMenu = PageFactory.initElements(getWebDriver(), LeftMenu.class);
 
-    differentElementsPage = PageFactory.initElements(webDriver, DifferentElementsPage.class);
-    logComponent = PageFactory.initElements(webDriver, LogComponent.class);
+    differentElementsPage = PageFactory.initElements(getWebDriver(), DifferentElementsPage.class);
+    logComponent = PageFactory.initElements(getWebDriver(), LogComponent.class);
   }
 }

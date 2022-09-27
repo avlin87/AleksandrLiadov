@@ -1,9 +1,11 @@
 package com.epam.tc.hw4.pages;
 
+import static com.epam.tc.hw4.driver.WebDriverSingleton.getWebDriver;
+
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import lombok.Getter;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,8 +15,6 @@ import org.openqa.selenium.support.FindBy;
  * @author Aleksandr Liadov
  */
 public class IndexPage {
-
-  private final WebDriver webDriver;
 
   @Getter
   @FindBy(css = "div.benefit div.benefit-icon span[class^='icons-benefit']")
@@ -34,16 +34,12 @@ public class IndexPage {
   @FindBy(css = "input[value='Frame Button']")
   private List<WebElement> frameButtons;
 
-  public IndexPage(WebDriver webDriver) {
-    this.webDriver = webDriver;
-  }
-
   public void open() {
-    webDriver.get("https://jdi-testing.github.io/jdi-light/index.html");
+    getWebDriver().get("https://jdi-testing.github.io/jdi-light/index.html");
   }
 
   public String getTitle() {
-    return webDriver.getTitle();
+    return getWebDriver().getTitle();
   }
 
   /**
@@ -53,6 +49,7 @@ public class IndexPage {
    */
   public List<String> getDisplayedImagesTexts() {
     return imagesTexts.stream()
+        .filter(Objects::nonNull)
         .filter(WebElement::isDisplayed)
         .map(WebElement::getText)
         .collect(Collectors.toList());
@@ -65,7 +62,7 @@ public class IndexPage {
    */
   public boolean isFrameButtonFoundInIframe() {
     for (WebElement iframe : iframes) {
-      webDriver.switchTo().frame(iframe);
+      getWebDriver().switchTo().frame(iframe);
       boolean isFound = !frameButtons.isEmpty();
       switchToOriginalWindow();
       if (isFound) {
@@ -76,6 +73,6 @@ public class IndexPage {
   }
 
   public void switchToOriginalWindow() {
-    webDriver.switchTo().defaultContent();
+    getWebDriver().switchTo().defaultContent();
   }
 }

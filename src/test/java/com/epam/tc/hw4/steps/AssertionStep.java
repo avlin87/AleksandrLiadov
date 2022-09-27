@@ -5,14 +5,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import io.qameta.allure.Step;
 import java.util.Arrays;
 import java.util.List;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class AssertionStep extends AbstractStep {
-
-  public AssertionStep(WebDriver webDriver) {
-    super(webDriver);
-  }
 
   @Step("Assert that page title equal to '{homePage}'")
   public void assertTitleEquals(String homePage) {
@@ -59,7 +54,6 @@ public class AssertionStep extends AbstractStep {
   }
 
   private void assertAllElementsPresent(List<String> validatedList, String[] data) {
-    assertThat(validatedList).hasSize(data.length);
-    assertThat(validatedList).contains(data);
+    assertThat(validatedList).containsExactly(data);
   }
 }

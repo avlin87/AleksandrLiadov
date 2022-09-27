@@ -10,11 +10,13 @@ import com.epam.tc.hw4.dataproviders.DataEnum;
 import com.epam.tc.hw4.dataproviders.Exercise2Data;
 import com.epam.tc.hw4.listners.AllureListener;
 import com.epam.tc.hw4.tests.AbstractBaseSeleniumTest;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import java.util.Map;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Feature("Exercise 2")
 @Story("Different Elements page")
 @Listeners({AllureListener.class})
 public class Exercise2Test extends AbstractBaseSeleniumTest {
@@ -45,3 +47,4 @@ public class Exercise2Test extends AbstractBaseSeleniumTest {
     assertionStep.assertLogMessages(dataMap.get(LOG_PATTERNS));
   }
 }
+

@@ -1,37 +1,39 @@
 package com.epam.tc.hw4.tests;
 
+import static com.epam.tc.hw4.driver.WebDriverSingleton.getWebDriver;
+
+import com.epam.tc.hw4.driver.WebDriverSingleton;
 import com.epam.tc.hw4.steps.ActionStep;
 import com.epam.tc.hw4.steps.AssertionStep;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 
 public abstract class AbstractBaseSeleniumTest {
-
-  protected WebDriver webDriver;
 
   protected ActionStep actionStep;
   protected AssertionStep assertionStep;
 
   @BeforeMethod
   public void setUp(ITestContext testContext) {
-    webDriver = WebDriverManager.chromedriver().create();
-    webDriver.manage().window().maximize();
-    webDriver.manage().timeouts().implicitlyWait(3L, TimeUnit.SECONDS);
+    getWebDriver().manage().window().maximize();
+    getWebDriver().manage().timeouts().implicitlyWait(3L, TimeUnit.SECONDS);
 
-    actionStep = new ActionStep(webDriver);
-    assertionStep = new AssertionStep(webDriver);
+    actionStep = new ActionStep();
+    assertionStep = new AssertionStep();
 
-    testContext.setAttribute("driver", webDriver);
+    testContext.setAttribute("driver", getWebDriver());
   }
 
   @AfterMethod
+  public void clearCookies() {
+    getWebDriver().manage().deleteAllCookies();
+  }
+
+  @AfterSuite
   public void tearDown() {
-    if (webDriver != null) {
-      webDriver.quit();
-    }
+    WebDriverSingleton.closeDriver();
   }
 }
